@@ -3,7 +3,6 @@ import './Chat.css'
 import { Avatar, IconButton } from '@material-ui/core'
 import { AttachFile, MoreVert, SearchOutlined } from '@material-ui/icons'
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
-import MicIcon from '@material-ui/icons/Mic'
 
 const Chat = () => {
 	return (
@@ -50,7 +49,6 @@ const Chat = () => {
 					<input placeholder='Type a message...' type='text' />
 					<button type='submit'>Send a Message</button>
 				</form>
-				<MicIcon />
 			</div>
 		</div>
 	)

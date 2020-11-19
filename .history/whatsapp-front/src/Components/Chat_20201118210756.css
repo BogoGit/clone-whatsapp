@@ -1,0 +1,17 @@
+.chat {
+	display: flex;
+	flex-direction: column;
+	flex: 0.65;
+}
+
+.chat__header {
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid lightgray;
+	padding: 2rem;
+}
+
+.chat__headerInfo {
+	flex: 1;
+	padding-left: 2rem;
+}

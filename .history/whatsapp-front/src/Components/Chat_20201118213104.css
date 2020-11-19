@@ -1,0 +1,45 @@
+.chat {
+	display: flex;
+	flex-direction: column;
+	flex: 0.65;
+}
+
+.chat__header {
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid lightgray;
+	padding: 2rem;
+}
+
+.chat__headerInfo {
+	flex: 1;
+	padding-left: 2rem;
+}
+
+.chat__headerInfo > h3 {
+	font-weight: 500;
+}
+
+.chat__headerInfo > p {
+	color: gray;
+}
+
+.chat__body {
+	flex: 1;
+	background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	padding: 3rem;
+	overflow: scroll;
+}
+
+.chat__message {
+	position: relative
+	font-size: 1.6rem;
+	
+}
+
+.chat__name {
+
+}

@@ -85,10 +85,3 @@
 .chat__footer > form > button {
 	display: none;
 }
-
-.chat__footer > .MuiSvgIcon-root {
-	padding: 1rem;
-	width: 4.4rem;
-	height: 4.4rem;
-	cursor: pointer;
-}
