@@ -33,7 +33,7 @@ const Sidebar = () => {
 			</div>
 
 			<div className='sidebar__chats'>
-				<SidebarChat />
+				<SidebarChahat />
 				<SidebarChat />
 				<SidebarChat />
 			</div>
