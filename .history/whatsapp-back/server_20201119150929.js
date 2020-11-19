@@ -3,7 +3,6 @@ import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
 import Messages from './dbMessages.js'
-import Pusher from 'pusher'
 
 // app config
 const app = express()
@@ -28,33 +27,7 @@ mongoose.connect(connection_url, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 })
-
-// Pusher
-const db = mongoose.connection
-db.once('open', () => {
-	console.log('DB CONNECTED...')
-	const msgCollection = db.collection('messagecontents')
-	const changeStream = msgCollection.watch()
-	changeStream.on('change', (change) => {
-		console.log(change)
-		switch (change.operationType) {
-			case 'insert':
-				console.log('INSERT CODE AREA')
-				const messageDetails = change.fullDocument
-				pusher.trigger('messages', 'inserted', {
-					name: messageDetails.name,
-					message: messageDetails.message,
-					timestamp: messageDetails.timestamp,
-					sender: messageDetails.sender,
-				})
-
-				break
-			default:
-				console.error('ERROR: Pusher Trigger')
-				break
-		}
-	})
-})
+// ???
 
 // api routes
 app.get('/', (req, res) => res.status(200).send('Hi Universe!'))

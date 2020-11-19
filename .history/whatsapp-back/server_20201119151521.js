@@ -37,22 +37,6 @@ db.once('open', () => {
 	const changeStream = msgCollection.watch()
 	changeStream.on('change', (change) => {
 		console.log(change)
-		switch (change.operationType) {
-			case 'insert':
-				console.log('INSERT CODE AREA')
-				const messageDetails = change.fullDocument
-				pusher.trigger('messages', 'inserted', {
-					name: messageDetails.name,
-					message: messageDetails.message,
-					timestamp: messageDetails.timestamp,
-					sender: messageDetails.sender,
-				})
-
-				break
-			default:
-				console.error('ERROR: Pusher Trigger')
-				break
-		}
 	})
 })
 

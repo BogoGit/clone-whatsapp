@@ -33,28 +33,10 @@ mongoose.connect(connection_url, {
 const db = mongoose.connection
 db.once('open', () => {
 	console.log('DB CONNECTED...')
-	const msgCollection = db.collection('messagecontents')
-	const changeStream = msgCollection.watch()
-	changeStream.on('change', (change) => {
-		console.log(change)
-		switch (change.operationType) {
-			case 'insert':
-				console.log('INSERT CODE AREA')
-				const messageDetails = change.fullDocument
-				pusher.trigger('messages', 'inserted', {
-					name: messageDetails.name,
-					message: messageDetails.message,
-					timestamp: messageDetails.timestamp,
-					sender: messageDetails.sender,
-				})
-
-				break
-			default:
-				console.error('ERROR: Pusher Trigger')
-				break
-		}
-	})
 })
+
+const msgCollection = db.collection('messagecontents')
+const changeStream = msgCollection.watch()
 
 // api routes
 app.get('/', (req, res) => res.status(200).send('Hi Universe!'))

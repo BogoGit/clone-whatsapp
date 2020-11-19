@@ -41,7 +41,7 @@ db.once('open', () => {
 			case 'insert':
 				console.log('INSERT CODE AREA')
 				const messageDetails = change.fullDocument
-				pusher.trigger('messages', 'inserted', {
+				pusher.trigger('mesages', 'inserted', {
 					name: messageDetails.name,
 					message: messageDetails.message,
 					timestamp: messageDetails.timestamp,
@@ -50,7 +50,6 @@ db.once('open', () => {
 
 				break
 			default:
-				console.error('ERROR: Pusher Trigger')
 				break
 		}
 	})
