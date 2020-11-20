@@ -51,9 +51,6 @@ db.once('open', () => {
 				break
 			case 'delete':
 				console.log('DELETE CODE AREA')
-				const messageId = change.documentKey._id
-				pusher.trigger('messages', 'deleted', messageId)
-				break
 
 			default:
 				console.error('ERROR: Pusher Trigger')

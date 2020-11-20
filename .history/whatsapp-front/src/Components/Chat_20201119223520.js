@@ -1,12 +1,7 @@
 import React, { useState } from 'react'
 import './Chat.css'
 import { Avatar, IconButton } from '@material-ui/core'
-import {
-	AttachFile,
-	MoreVert,
-	SearchOutlined,
-	Delete,
-} from '@material-ui/icons'
+import { AttachFile, MoreVert, SearchOutlined } from '@material-ui/icons'
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
 import MicIcon from '@material-ui/icons/Mic'
 import axios from '../axios'
@@ -24,12 +19,6 @@ const Chat = ({ messages }) => {
 		})
 		setInput('')
 	}
-
-	const deleteMessage = (e) => {
-		const id = e.target.closest('[data-key]').dataset.key
-		axios.delete(`/api/v1/messages/delete/${id}`)
-	}
-
 	return (
 		<div className='chat'>
 			<div className='chat__header'>
@@ -56,9 +45,6 @@ const Chat = ({ messages }) => {
 						className={`chat__message ${message.sender && 'chat__sender'}`}
 						key={message._id}
 					>
-						<span className='chat__delete' data-key={message._id}>
-							<Delete onClick={deleteMessage} />
-						</span>
 						<span className='chat__name'>{message.name}</span>
 						{message.message}
 						<span className='chat__timestamp'>{message.timestamp}</span>

@@ -24,12 +24,6 @@ const Chat = ({ messages }) => {
 		})
 		setInput('')
 	}
-
-	const deleteMessage = (e) => {
-		const id = e.target.closest('[data-key]').dataset.key
-		axios.delete(`/api/v1/messages/delete/${id}`)
-	}
-
 	return (
 		<div className='chat'>
 			<div className='chat__header'>
@@ -56,8 +50,8 @@ const Chat = ({ messages }) => {
 						className={`chat__message ${message.sender && 'chat__sender'}`}
 						key={message._id}
 					>
-						<span className='chat__delete' data-key={message._id}>
-							<Delete onClick={deleteMessage} />
+						<span className='chat__delete'>
+							<Delete />
 						</span>
 						<span className='chat__name'>{message.name}</span>
 						{message.message}

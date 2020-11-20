@@ -51,16 +51,13 @@
 	font-size: xx-small;
 }
 
-.chat__delete .MuiSvgIcon-root {
-	font-size: 1.6rem !important;
-	transform: translateY(75%);
-	cursor: pointer;
-}
-
 .chat__delete {
 	position: absolute;
 	top: 0;
 	left: -2rem;
+	transform: translateY(75%);
+	font-size: 1.6rem !important;
+	cursor: pointer;
 }
 
 .chat__sender .chat__delete {

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ReactDOM from 'react-dom'
 import './Chat.css'
 import { Avatar, IconButton } from '@material-ui/core'
 import {
@@ -26,7 +27,7 @@ const Chat = ({ messages }) => {
 	}
 
 	const deleteMessage = (e) => {
-		const id = e.target.closest('[data-key]').dataset.key
+		const id = e.target.dataset.key
 		axios.delete(`/api/v1/messages/delete/${id}`)
 	}
 

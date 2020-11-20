@@ -35,7 +35,7 @@ function App() {
 		})
 		const channel = pusher.subscribe('messages')
 		channel.bind('deleted', (id) => {
-			setMessages(messages.filter((message) => message._id !== id))
+			setMessages(messages.filter(message._id != id))
 		})
 
 		return () => {

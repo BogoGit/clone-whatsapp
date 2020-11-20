@@ -48,13 +48,8 @@ db.once('open', () => {
 					timestamp: messageDetails.timestamp,
 					sender: messageDetails.sender,
 				})
-				break
-			case 'delete':
-				console.log('DELETE CODE AREA')
-				const messageId = change.documentKey._id
-				pusher.trigger('messages', 'deleted', messageId)
-				break
 
+				break
 			default:
 				console.error('ERROR: Pusher Trigger')
 				break
@@ -87,12 +82,8 @@ app.post('/api/v1/messages/new', (req, res) => {
 app.delete('/api/v1/messages/delete/:id', (req, res) => {
 	const id = req.params.id
 	Messages.findByIdAndDelete(id, (err) => {
-		if (err) {
-			console.error(err)
-			res.status(404).send(`Record for id:${id} NOT FOUND`)
-		} else {
-			res.status(200).send(`Delete Acknowledged for id:${id}`)
-		}
+		if (err) console.error(err)
+		res.status(200).send(`Delete Acknowledged for id:${id}`)
 	})
 })
 
