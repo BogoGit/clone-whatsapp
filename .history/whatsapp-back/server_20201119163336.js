@@ -43,8 +43,8 @@ db.once('open', () => {
 				const messageDetails = change.fullDocument
 				pusher.trigger('messages', 'inserted', {
 					_id: messageDetails._id,
-					message: messageDetails.message,
 					name: messageDetails.name,
+					message: messageDetails.message,
 					timestamp: messageDetails.timestamp,
 					sender: messageDetails.sender,
 				})
@@ -60,6 +60,7 @@ db.once('open', () => {
 // api routes
 app.get('/', (req, res) => res.status(200).send('Hi Universe!'))
 app.get('/api/v1/messages/sync', (req, res) => {
+	const dbMessage = req.body
 	Messages.find((err, data) => {
 		if (err) {
 			res.status(500).send(err)

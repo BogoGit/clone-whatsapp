@@ -79,5 +79,7 @@ app.post('/api/v1/messages/new', (req, res) => {
 	})
 })
 
+app.delete('api/v1/messages/delete', (req, res) => {})
+
 // listen
 app.listen(port, console.log(`Listening on localhost:${port}`))

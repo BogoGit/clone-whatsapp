@@ -4,20 +4,13 @@ import { Avatar, IconButton } from '@material-ui/core'
 import { AttachFile, MoreVert, SearchOutlined } from '@material-ui/icons'
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
 import MicIcon from '@material-ui/icons/Mic'
-import axios from '../axios'
+import axios from './axios'
 
 const Chat = ({ messages }) => {
 	const [input, setInput] = useState('')
 
 	const sendMessage = (e) => {
 		e.preventDefault()
-		axios.post('/api/v1/messages/new', {
-			message: input,
-			name: 'BoGo',
-			timestamp: '9:13pm',
-			sender: true,
-		})
-		setInput('')
 	}
 	return (
 		<div className='chat'>

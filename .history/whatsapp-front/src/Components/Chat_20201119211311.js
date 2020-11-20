@@ -17,7 +17,6 @@ const Chat = ({ messages }) => {
 			timestamp: '9:13pm',
 			sender: true,
 		})
-		setInput('')
 	}
 	return (
 		<div className='chat'>

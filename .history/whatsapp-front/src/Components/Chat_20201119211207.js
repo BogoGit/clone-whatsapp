@@ -14,10 +14,9 @@ const Chat = ({ messages }) => {
 		axios.post('/api/v1/messages/new', {
 			message: input,
 			name: 'BoGo',
-			timestamp: '9:13pm',
+			timestamp: new Date.toDateString(),
 			sender: true,
 		})
-		setInput('')
 	}
 	return (
 		<div className='chat'>

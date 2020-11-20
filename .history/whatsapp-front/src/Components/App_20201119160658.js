@@ -18,15 +18,11 @@ function App() {
 		const pusher = new Pusher('64733a61f8ea7afb4f3e', {
 			cluster: 'us2',
 		})
+
 		const channel = pusher.subscribe('messages')
 		channel.bind('inserted', (newMessage) => {
 			setMessages([...messages, newMessage])
 		})
-
-		return () => {
-			channel.unbind_all()
-			channel.unsubscribe()
-		}
 	}, [messages])
 
 	console.log(messages)
@@ -35,7 +31,7 @@ function App() {
 		<div className='app'>
 			<div className='app__body'>
 				<Sidebar />
-				<Chat messages={messages} />
+				<Chat />
 			</div>
 		</div>
 	)

@@ -22,11 +22,6 @@ function App() {
 		channel.bind('inserted', (newMessage) => {
 			setMessages([...messages, newMessage])
 		})
-
-		return () => {
-			channel.unbind_all()
-			channel.unsubscribe()
-		}
 	}, [messages])
 
 	console.log(messages)
@@ -35,7 +30,7 @@ function App() {
 		<div className='app'>
 			<div className='app__body'>
 				<Sidebar />
-				<Chat messages={messages} />
+				<Chat />
 			</div>
 		</div>
 	)
